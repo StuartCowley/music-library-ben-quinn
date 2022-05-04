@@ -9,7 +9,7 @@ exports.artist_create_post = async (req, res) => {
 
     res.sendStatus(201);
   } catch (err) {
-    res.sendStatus(500).json(err);
+    res.status(500).json(err);
   }
 
   await db.close();
