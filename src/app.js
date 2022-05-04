@@ -1,5 +1,5 @@
 const express = require('express');
-const artistRoutes = require('./routes/artist')
+const artistRoutes = require('./routes/artist');
 
 // Express App
 const app = express();
