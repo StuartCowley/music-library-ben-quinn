@@ -5,9 +5,26 @@ exports.artist_create_post = async (req, res) => {
   const { name, genre } = req.body;
 
   try {
-    await db.query(`INSERT INTO Artist (name, genre) VALUES (?, ?)`, [name, genre]);
+    await db.query(`INSERT INTO Artist (name, genre) VALUES (?, ?)`, [
+      name,
+      genre,
+    ]);
 
     res.sendStatus(201);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+  await db.close();
+};
+
+exports.artist_read = async (req, res) => {
+  const db = await getDb();
+
+  try {
+    const artists = await db.query(`SELECT * FROM Artist`);
+
+    res.status(200).json(artists[0]);
   } catch (err) {
     res.status(500).json(err);
   }
