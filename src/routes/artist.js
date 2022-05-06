@@ -13,4 +13,7 @@ router.post('/', artistController.artist_create);
 // PATCH
 router.patch('/:artistId', artistController.artist_update);
 
+// DELETE
+router.delete('/:artistId', artistController.artist_delete);
+
 module.exports = router;

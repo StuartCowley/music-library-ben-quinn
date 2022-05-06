@@ -1,3 +1,4 @@
+const db = require('../services/db');
 const getDb = require('../services/db');
 
 // Create artist controller function
@@ -61,7 +62,24 @@ exports.artist_update = async (req, res) => {
 
     !artist ? res.sendStatus(404) : res.sendStatus(200);
   } catch (err) {
-    res.sendStatus(500).JSON(err);
+    res.sendStatus(500).json(err);
+  }
+
+  await db.close();
+};
+
+// Delete artist controller function
+exports.artist_delete = async (req, res) => {
+  const db = await getDb();
+  const id = req.params.artistId;
+  const [[artist]] = await db.query(`SELECT * FROM Artist WHERE id = ?`, [id]);
+
+  try {
+    await db.query(`DELETE FROM Artist WHERE id = ?`, [id]);
+
+    !artist ? res.sendStatus(404) : res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
   }
 
   await db.close();
