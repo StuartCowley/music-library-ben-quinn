@@ -50,7 +50,7 @@ exports.artist_read_id = async (req, res) => {
   await db.close();
 };
 
-// Updating artist controller function
+// Update artist controller function
 exports.artist_update = async (req, res) => {
   const db = await getDb();
   const id = req.params.artistId;
