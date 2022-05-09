@@ -77,3 +77,20 @@ exports.album_update = async (req, res) => {
 
   await db.close();
 };
+
+// Delete album controller function
+exports.album_delete = async (req, res) => {
+  const db = await getDb();
+  const id = req.params.albumId;
+  const [[album]] = await db.query(`SELECT * FROM Album WHERE id = ?`, [id]);
+
+  try {
+    await db.query(`DELETE FROM Album WHERE id = ?`, [id]);
+
+    !album ? res.sendStatus(404) : res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+  await db.close();
+};
