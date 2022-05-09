@@ -10,7 +10,7 @@ A simple API that allows users to perform CRUD operations on a Music Library (My
 - Node.js
 - Mocha, Chai and Supertest
 
-### Installation
+## Installation
 
 - Pull a docker MySQL image and run the container
 
@@ -25,7 +25,7 @@ $ git clone git@github.com:benjQuinn/music-library.git
 $ cd music-library
 ```
 
-- Create an .env file and add local variables to:
+- Create a .env file and add local variables to:
 
   - DB_PASSWORD
   - DB_NAME
@@ -102,6 +102,6 @@ To run the tests:
 $ npm test
 ```
 
-#### Credits
+### Credits
 
 [Manchester Codes] (https://www.manchestercodes.com/) Junior Software Developer Bootcamp backend module project.
