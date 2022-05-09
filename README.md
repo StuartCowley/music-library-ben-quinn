@@ -104,4 +104,4 @@ $ npm test
 
 ### Credits
 
-[Manchester Codes] (https://www.manchestercodes.com/) Junior Software Developer Bootcamp backend module project.
+[Manchester Codes](https://github.com/MCRcodes) Junior Software Developer Bootcamp backend module project.
