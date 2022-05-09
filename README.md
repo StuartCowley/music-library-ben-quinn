@@ -26,23 +26,20 @@ $ cd music-library
 ```
 
 - Create a .env file and add local variables to:
-
   - DB_PASSWORD
   - DB_NAME
   - DB_USER
   - DB_HOST
   - DB_PORT
   - PORT
-
 - Start the project
 
 ```
 npm start
 ```
+## Routes
 
-### Routes
-
-#### Artist
+### Artist
 
 - Create artist: POST to /artist with request body:
   ```
@@ -65,7 +62,7 @@ npm start
 
 - Delete specific artist: DELETE to /artist/:artistId
 
-#### Albums
+### Albums
 
 - Create album: POST to /album with request body:
   ```
@@ -88,7 +85,7 @@ npm start
 
 - Delete specific album: DELETE to /album/:albumtId
 
-### Testing
+## Testing
 
 Test Driven Deleopment implemented. Mocha, Chai and Supertest used for integration testing.
 
@@ -101,7 +98,6 @@ To run the tests:
 ```
 $ npm test
 ```
-
-### Credits
+## Credits
 
 [Manchester Codes](https://github.com/MCRcodes) Junior Software Developer Bootcamp backend module project.
