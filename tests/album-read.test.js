@@ -7,7 +7,6 @@ describe('read album', () => {
   let db;
   let artists;
   let albums;
-  let albumsIdTest;
 
   beforeEach(async () => {
     db = await getDb();

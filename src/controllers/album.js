@@ -60,18 +60,20 @@ exports.album_read_id = async (req, res) => {
   await db.close();
 };
 
-//   exports.album_read_id = async (req, res) => {
-//     const db = await getDb();
-//     const id = req.params.albumId;
-//     const [[album]] = await db.query(`
-//     SELECT * FROM Album WHERE id = ?`, [id]);
-//     console.log(album);
-//     try {
-//       !album ? res.sendStatus(404) : res.status(200).json(album);
+// Update album controller function
+exports.album_update = async (req, res) => {
+  const db = await getDb();
+  const id = req.params.albumId;
+  const data = req.body;
+  const [[album]] = await db.query(`SELECT * FROM Album WHERE id = ?`, [id]);
 
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
+  try {
+    await db.query(`UPDATE Album SET ? WHERE id = ?`, [data, id]);
 
-//     await db.close();
-//   };
+    !album ? res.sendStatus(404) : res.sendStatus(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
+  await db.close();
+};
